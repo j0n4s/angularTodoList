@@ -19,25 +19,23 @@
        *ngFor="let task of listProvider.tasks; let i = index;"
        style="margin-bottom: 10px;">
     <mat-card>
+      <div class="pull-right">
+        <button (click)="edit(index, task);" type="button" class="btn btn-success btn-circle">
+          <i *ngIf="!task.activate" class="fa fa-pencil"></i>
+          <i *ngIf="task.activate" class="fa fa-check"></i>
+        </button>
+        <button (click)="remove(index);" type="button" class="btn btn-danger btn-circle">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+
       <mat-card-header>
         <mat-card-title>Tarea {{i+1}}</mat-card-title>
-
-        <div class="col-xs-12">
-          <div class="pull-right">
-            <button (click)="edit(index, task);" type="button" class="btn btn-success btn-circle">
-              <i *ngIf="!task.activate" class="fa fa-pencil"></i>
-              <i *ngIf="task.activate" class="fa fa-check"></i>
-            </button>
-            <button (click)="remove(index);" type="button" class="btn btn-danger btn-circle">
-              <i class="fa fa-times"></i>
-            </button>
-          </div>
-        </div>
 
         <mat-card-subtitle>
           <span *ngIf="!task.activate">{{task.value}}</span>
           <mat-form-field *ngIf="task.activate" class="example-form-field">
-            <input matInput type="text" placeholder="Editing task" [(ngModel)]="task.value"/>
+            <input matInput type="text" placeholder="Editando tarea" [(ngModel)]="task.value"/>
           </mat-form-field>
         </mat-card-subtitle>
 

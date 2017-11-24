@@ -94,7 +94,7 @@ describe('Form', () => {
       
       expect(compiled.querySelectorAll('mat-card-subtitle > span').length).toBe(1);
       expect(compiled.querySelectorAll('mat-card-subtitle > mat-form-field').length).toBe(1);
-      expect(compiled.querySelectorAll('mat-card-header > div > div > button > i')[0].className).toBe('fa fa-check');
+      expect(compiled.querySelectorAll('mat-card > div > button > i')[0].className).toBe('fa fa-check');
     }));
   });
   
